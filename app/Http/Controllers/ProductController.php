@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Repository\ProductRepositoryInterface;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateProductRequest;
 
 class ProductController extends Controller
 {
@@ -26,9 +27,10 @@ class ProductController extends Controller
 
     }
 
-    public function create(Request $request)
+    public function create(array $data, CreateProductRequest $request)
     {
-        $products = $this->productCollection->create($request);
+        $validated = $request->validated();
+        $products = $this->productCollection->create($data);
 
         return response()->json($products, 201);
     }

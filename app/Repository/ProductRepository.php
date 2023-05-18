@@ -17,9 +17,9 @@ class ProductRepository implements ProductRepositoryInterface {
         return ProductResource(Product::findOrFail($id));
     }
 
-    public function create($request)
+    public function createProduct($data)
     {
-        return new ProductResource(Product::create($request->all()));
+        return new ProductResource(Product::create($data->all()));
     }
 
 

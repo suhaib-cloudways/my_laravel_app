@@ -15,10 +15,10 @@ class CreateLaravelTables extends Migration
     {
         Schema::create('laravel_tables', function (Blueprint $table) {
             $table->id();
-            $table->string('picture' | null);
-            $table->string('title' | null);
-            $table->integer('price' | null);
-            $table->longText('description' | null);
+            $table->string('picture');
+            $table->string('title');
+            $table->integer('price');
+            $table->longText('description');          
             $table->timestamps();
         });
     }
