@@ -9,7 +9,7 @@ class Comment extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'product_id', 'comment', 'rating'
+        'product_id', 'comment', 'name'
     ];
 
     // Belongs to  connection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Repository\ProductRepositoryInterface;
 use Illuminate\Http\Request;
+use App\Http\Resources\ProductResource;
 use App\Http\Requests\CreateProductRequest;
 
 class ProductController extends Controller
@@ -23,16 +24,15 @@ class ProductController extends Controller
 
         $products =  $this->productCollection->getAllProducts();
 
-        return response()->json($products, 201);
+        return ProductResource::collection(Product::all());
 
     }
 
-    public function create(array $data, CreateProductRequest $request)
+    public function create(CreateProductRequest $request)
     {
-        $validated = $request->validated();
-        $products = $this->productCollection->create($data);
+        $products = $this->productCollection->create($request);
 
-        return response()->json($products, 201);
+        return new ProductResource(Product::create($request->all()));
     }
 }
 ?>

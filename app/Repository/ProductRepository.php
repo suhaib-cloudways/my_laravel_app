@@ -9,17 +9,17 @@ class ProductRepository implements ProductRepositoryInterface {
 
     public function getAllProducts()
     {
-       return ProductResource::collection(Product::all());
+       return Product::all();
     }
 
     public function getSingleProduct($id)
     {
-        return ProductResource(Product::findOrFail($id));
+        return Product::findOrFail($id);
     }
 
     public function createProduct($data)
     {
-        return new ProductResource(Product::create($data->all()));
+        return Product::create($data->all());
     }
 
 

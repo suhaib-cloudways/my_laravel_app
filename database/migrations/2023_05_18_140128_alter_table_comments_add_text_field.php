@@ -14,7 +14,7 @@ class AlterTableCommentsAddTextField extends Migration
     public function up()
     {
         Schema::table('comments', function (Blueprint $table) {
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreignId('product_id')->references('id')->on('laravel_tables')->onDelete('cascade');
         });
     }
 
@@ -26,7 +26,7 @@ class AlterTableCommentsAddTextField extends Migration
     public function down()
     {
         Schema::table('comments', function (Blueprint $table) {
-            $table->dropIfExists('comments');
+            $table->dropColumn('product_id');
         }); 
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,6 @@ Route::get('/', function () {
 
 Route::get('/products',[ProductController::class, 'index']);
 Route::post('/products/create',[ProductController::class, 'create']);
+Route::get('/comments',[CommentController::class, 'index']);
+Route::post('/comments/create',[CommentController::class, 'create']);
+Route::post('/products/{name}/comments',[CommentController::class, 'store']);

@@ -13,7 +13,7 @@ class CreateCommentsRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,8 @@ class CreateCommentsRequest extends FormRequest
     {
         return [
             'comment' => 'required|string',
-            'rating' => 'required|integer',
+            'name' => 'required|string',
+            'product_id' =>  'required|integer'
         ];
     }
 }
