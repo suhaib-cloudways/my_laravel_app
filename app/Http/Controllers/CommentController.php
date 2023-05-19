@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Http\Resources\CommentResource;
 use App\Repository\CommentRepositoryInterface;
 use App\Http\Requests\CreateCommentsRequest;
 
@@ -18,28 +19,18 @@ class CommentController extends Controller
     }
 
 
-    public function create(CreateCommentRequest $request ) {
+    public function create(CreateCommentsRequest $request ) {
        
 
-        $comments = $this->Comments->createComment($request);
-        return new CommentResource(Comment::create($request->all()));
+       return new CommentResource($this->Comments->createComment($request));
 
 
     }
 
     public function index()
     {
-        $comments =  $this->Comments->showAllComments();
-        return CommentResource::collection(Comment::all());
+        return CommentResource::collection($this->Comments->showAllComments());
     }
 
-    public function store(CreateCommentRequest $request, Product $product)
-    {
-        $comment = Comment::make($request);
-        $comment->post()->associate($product);
-        $comment->save();
-
-        return new CommentResource($comment->fresh());
-    }
 
 }

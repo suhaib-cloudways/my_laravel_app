@@ -22,17 +22,13 @@ class ProductController extends Controller
     {
         // return all products
 
-        $products =  $this->productCollection->getAllProducts();
-
-        return ProductResource::collection(Product::all());
+      return  ProductResource::collection($this->productCollection->getAllProducts());
 
     }
 
     public function create(CreateProductRequest $request)
     {
-        $products = $this->productCollection->create($request);
-
-        return new ProductResource(Product::create($request->all()));
+     return new ProductResource($this->productCollection->createProduct($request));
     }
 }
 ?>

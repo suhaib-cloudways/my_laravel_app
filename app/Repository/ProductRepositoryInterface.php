@@ -1,7 +1,7 @@
 <?php
 namespace App\Repository;
 
-interface IProductRepository {
+interface ProductRepositoryInterface {
 
     public function getAllProducts();
 
