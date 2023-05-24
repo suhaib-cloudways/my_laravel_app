@@ -7,6 +7,8 @@ use App\Repository\ProductRepositoryInterface;
 use App\Repository\ProductRepository;
 use App\Repository\CommentRepositoryInterface;
 use App\Repository\CommentRepository;
+use App\Repository\AuthorRepositoryInterface;
+use App\Repository\AuthorRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
         //
         $this->app->bind(ProductRepositoryInterface::class, ProductRepository::class);
         $this->app->bind(CommentRepositoryInterface::class, CommentRepository::class);
+        $this->app->bind(AuthorRepositoryInterface::class, AuthorRepository::class);
     }
 
     /**

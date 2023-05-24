@@ -13,7 +13,7 @@ class Product extends Model
 
 
     protected $fillable = [
-        'picture', 'title', 'price', 'description'
+       'authors_id', 'picture', 'title', 'price', 'description'
     ];
 
 
@@ -22,6 +22,8 @@ class Product extends Model
     public function comments() {
        return $this->hasMany(Comment::class);
     }
-
+    public function author() {
+        return $this->belongsTo(Author::class);
+     }
 
 }
