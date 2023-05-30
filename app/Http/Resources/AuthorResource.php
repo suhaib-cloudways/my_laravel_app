@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 use App\Http\Resources\ProductResource;
+use App\Http\Resources\BookResource;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -22,7 +23,8 @@ class AuthorResource extends JsonResource
             'github' => $this->github,
             'twitter' => $this->twitter,
             'location' => $this->location,
-            'product' =>  ProductResource::collection($this->product) 
+            'product' =>  ProductResource::collection($this->product),
+            'book' =>  BookResource::collection($this->book)  
         ];
     }
 }

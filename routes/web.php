@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BooksController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,3 +33,6 @@ Route::get('/authors/{id}', [AuthorController::class, 'showOneAuthor']);
 Route::post('/authors/create', [AuthorController::class, 'create']);
 Route::delete('/authors/delete/{id}', [AuthorController::class, 'delete']);
 Route::put('/authors/update/{id}', [AuthorController::class, 'update']);
+
+Route::get('/books', [BooksController::class, 'index']);
+Route::post('/create/book', [BooksController::class, 'create']);
