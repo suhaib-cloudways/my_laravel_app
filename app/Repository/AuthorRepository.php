@@ -18,6 +18,7 @@ class AuthorRepository implements AuthorRepositoryInterface{
  public function showOneAuthor($id){
     return Author::findOrFail($id);
    }
+   
 
 //Delete 
 public function deleteAuthor($id){
@@ -29,7 +30,6 @@ public function deleteAuthor($id){
     {
         return Author::create($data->all());
     }
-
 
     //Update an Author
     public function updateAuthor($id, $data){

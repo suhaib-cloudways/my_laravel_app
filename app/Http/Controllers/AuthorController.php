@@ -37,7 +37,6 @@ class AuthorController extends Controller
         return new AuthorResource($this->authorRepository->createAuthor($request));
     }
 
-
     public function update($id, CreateAuthorRequest $request)
     {
         return new AuthorResource($this->authorRepository->updateAuthor($request));
